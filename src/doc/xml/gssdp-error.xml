@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">               
+]>
+<refentry id="gssdp-Error-codes">
+<refmeta>
+<refentrytitle role="top_of_page" id="gssdp-Error-codes.top_of_page">Error codes</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GSSDP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>Error codes</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="gssdp-Error-codes.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+#define             <link linkend="GSSDP-ERROR--CAPS">GSSDP_ERROR</link>
+enum                <link linkend="GSSDPError">GSSDPError</link>;
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="gssdp-Error-codes.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="gssdp-Error-codes.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GSSDP-ERROR--CAPS" role="macro">
+<title>GSSDP_ERROR</title>
+<indexterm zone="GSSDP-ERROR--CAPS"><primary sortas="GSSDP_ERROR">GSSDP_ERROR</primary></indexterm><programlisting>#define GSSDP_ERROR (gssdp_error_quark ())
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="GSSDPError" role="enum">
+<title>enum GSSDPError</title>
+<indexterm zone="GSSDPError"><primary sortas="GSSDPError">GSSDPError</primary></indexterm><programlisting>typedef enum {
+        GSSDP_ERROR_NO_IP_ADDRESS,
+        GSSDP_ERROR_FAILED
+} GSSDPError;
+</programlisting>
+<para>
+</para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

@@ -1,0 +1,312 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">               
+]>
+<refentry id="GSSDPResourceGroup">
+<refmeta>
+<refentrytitle role="top_of_page" id="GSSDPResourceGroup.top_of_page">GSSDPResourceGroup</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GSSDP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GSSDPResourceGroup</refname>
+<refpurpose>Class for controlling resource announcement.</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="GSSDPResourceGroup.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="GSSDPResourceGroup-struct">GSSDPResourceGroup</link>;
+<link linkend="GSSDPResourceGroup">GSSDPResourceGroup</link> * <link linkend="gssdp-resource-group-new">gssdp_resource_group_new</link>           (<link linkend="GSSDPClient">GSSDPClient</link> *client);
+<link linkend="GSSDPClient">GSSDPClient</link> *       <link linkend="gssdp-resource-group-get-client">gssdp_resource_group_get_client</link>     (<link linkend="GSSDPResourceGroup">GSSDPResourceGroup</link> *resource_group);
+<link linkend="void">void</link>                <link linkend="gssdp-resource-group-set-max-age">gssdp_resource_group_set_max_age</link>    (<link linkend="GSSDPResourceGroup">GSSDPResourceGroup</link> *resource_group,
+                                                         <link linkend="guint">guint</link> max_age);
+<link linkend="guint">guint</link>               <link linkend="gssdp-resource-group-get-max-age">gssdp_resource_group_get_max_age</link>    (<link linkend="GSSDPResourceGroup">GSSDPResourceGroup</link> *resource_group);
+<link linkend="void">void</link>                <link linkend="gssdp-resource-group-set-available">gssdp_resource_group_set_available</link>  (<link linkend="GSSDPResourceGroup">GSSDPResourceGroup</link> *resource_group,
+                                                         <link linkend="gboolean">gboolean</link> available);
+<link linkend="gboolean">gboolean</link>            <link linkend="gssdp-resource-group-get-available">gssdp_resource_group_get_available</link>  (<link linkend="GSSDPResourceGroup">GSSDPResourceGroup</link> *resource_group);
+<link linkend="void">void</link>                <link linkend="gssdp-resource-group-set-message-delay">gssdp_resource_group_set_message_delay</link>
+                                                        (<link linkend="GSSDPResourceGroup">GSSDPResourceGroup</link> *resource_group,
+                                                         <link linkend="guint">guint</link> message_delay);
+<link linkend="guint">guint</link>               <link linkend="gssdp-resource-group-get-message-delay">gssdp_resource_group_get_message_delay</link>
+                                                        (<link linkend="GSSDPResourceGroup">GSSDPResourceGroup</link> *resource_group);
+<link linkend="guint">guint</link>               <link linkend="gssdp-resource-group-add-resource">gssdp_resource_group_add_resource</link>   (<link linkend="GSSDPResourceGroup">GSSDPResourceGroup</link> *resource_group,
+                                                         const <link linkend="char">char</link> *target,
+                                                         const <link linkend="char">char</link> *usn,
+                                                         <link linkend="GList">GList</link> *locations);
+<link linkend="guint">guint</link>               <link linkend="gssdp-resource-group-add-resource-simple">gssdp_resource_group_add_resource_simple</link>
+                                                        (<link linkend="GSSDPResourceGroup">GSSDPResourceGroup</link> *resource_group,
+                                                         const <link linkend="char">char</link> *target,
+                                                         const <link linkend="char">char</link> *usn,
+                                                         const <link linkend="char">char</link> *location);
+<link linkend="void">void</link>                <link linkend="gssdp-resource-group-remove-resource">gssdp_resource_group_remove_resource</link>
+                                                        (<link linkend="GSSDPResourceGroup">GSSDPResourceGroup</link> *resource_group,
+                                                         <link linkend="guint">guint</link> resource_id);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="GSSDPResourceGroup.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----GSSDPResourceGroup
+</synopsis>
+</refsect1>
+
+
+
+
+
+<refsect1 id="GSSDPResourceGroup.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="GSSDPResourceGroup--available">available</link>&quot;                <link linkend="gboolean">gboolean</link>              : Read / Write
+  &quot;<link linkend="GSSDPResourceGroup--client">client</link>&quot;                   <link linkend="GSSDPClient">GSSDPClient</link>*          : Read / Write / Construct Only
+  &quot;<link linkend="GSSDPResourceGroup--max-age">max-age</link>&quot;                  <link linkend="guint">guint</link>                 : Read / Write
+  &quot;<link linkend="GSSDPResourceGroup--message-delay">message-delay</link>&quot;            <link linkend="guint">guint</link>                 : Read / Write
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="GSSDPResourceGroup.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+A <link linkend="GSSDPResourceGroup"><type>GSSDPResourceGroup</type></link> is a group of SSDP resources whose availability can
+be controlled as one. This is useful when one needs to announce a single
+service as multiple SSDP resources (UPnP does this for example).</para>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="GSSDPResourceGroup.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GSSDPResourceGroup-struct" role="struct">
+<title>GSSDPResourceGroup</title>
+<indexterm zone="GSSDPResourceGroup-struct"><primary sortas="GSSDPResourceGroup">GSSDPResourceGroup</primary></indexterm><programlisting>typedef struct _GSSDPResourceGroup GSSDPResourceGroup;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="gssdp-resource-group-new" role="function">
+<title>gssdp_resource_group_new ()</title>
+<indexterm zone="gssdp-resource-group-new"><primary sortas="gssdp_resource_group_new">gssdp_resource_group_new</primary></indexterm><programlisting><link linkend="GSSDPResourceGroup">GSSDPResourceGroup</link> * gssdp_resource_group_new           (<link linkend="GSSDPClient">GSSDPClient</link> *client);</programlisting>
+<para>
+</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>client</parameter>&#160;:</term>
+<listitem><simpara> The <link linkend="GSSDPClient"><type>GSSDPClient</type></link> to associate with
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> A new <link linkend="GSSDPResourceGroup"><type>GSSDPResourceGroup</type></link> object.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gssdp-resource-group-get-client" role="function">
+<title>gssdp_resource_group_get_client ()</title>
+<indexterm zone="gssdp-resource-group-get-client"><primary sortas="gssdp_resource_group_get_client">gssdp_resource_group_get_client</primary></indexterm><programlisting><link linkend="GSSDPClient">GSSDPClient</link> *       gssdp_resource_group_get_client     (<link linkend="GSSDPResourceGroup">GSSDPResourceGroup</link> *resource_group);</programlisting>
+<para>
+</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>resource_group</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="GSSDPResourceGroup"><type>GSSDPResourceGroup</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> The <link linkend="GSSDPClient"><type>GSSDPClient</type></link> <parameter>resource_group</parameter> is associated with.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gssdp-resource-group-set-max-age" role="function">
+<title>gssdp_resource_group_set_max_age ()</title>
+<indexterm zone="gssdp-resource-group-set-max-age"><primary sortas="gssdp_resource_group_set_max_age">gssdp_resource_group_set_max_age</primary></indexterm><programlisting><link linkend="void">void</link>                gssdp_resource_group_set_max_age    (<link linkend="GSSDPResourceGroup">GSSDPResourceGroup</link> *resource_group,
+                                                         <link linkend="guint">guint</link> max_age);</programlisting>
+<para>
+Sets the number of seconds advertisements are valid to <parameter>max_age</parameter>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>resource_group</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="GSSDPResourceGroup"><type>GSSDPResourceGroup</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>max_age</parameter>&#160;:</term>
+<listitem><simpara> The number of seconds advertisements are valid
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gssdp-resource-group-get-max-age" role="function">
+<title>gssdp_resource_group_get_max_age ()</title>
+<indexterm zone="gssdp-resource-group-get-max-age"><primary sortas="gssdp_resource_group_get_max_age">gssdp_resource_group_get_max_age</primary></indexterm><programlisting><link linkend="guint">guint</link>               gssdp_resource_group_get_max_age    (<link linkend="GSSDPResourceGroup">GSSDPResourceGroup</link> *resource_group);</programlisting>
+<para>
+</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>resource_group</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="GSSDPResourceGroup"><type>GSSDPResourceGroup</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> The number of seconds advertisements are valid.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gssdp-resource-group-set-available" role="function">
+<title>gssdp_resource_group_set_available ()</title>
+<indexterm zone="gssdp-resource-group-set-available"><primary sortas="gssdp_resource_group_set_available">gssdp_resource_group_set_available</primary></indexterm><programlisting><link linkend="void">void</link>                gssdp_resource_group_set_available  (<link linkend="GSSDPResourceGroup">GSSDPResourceGroup</link> *resource_group,
+                                                         <link linkend="gboolean">gboolean</link> available);</programlisting>
+<para>
+Sets <parameter>resource_group</parameter><!-- -->s availability to <parameter>available</parameter>. Changing
+<parameter>resource_group</parameter><!-- -->s availability causes it to announce its new state
+to listening SSDP clients.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>resource_group</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="GSSDPResourceGroup"><type>GSSDPResourceGroup</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>available</parameter>&#160;:</term>
+<listitem><simpara> TRUE if <parameter>resource_group</parameter> should be available (advertised)
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gssdp-resource-group-get-available" role="function">
+<title>gssdp_resource_group_get_available ()</title>
+<indexterm zone="gssdp-resource-group-get-available"><primary sortas="gssdp_resource_group_get_available">gssdp_resource_group_get_available</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gssdp_resource_group_get_available  (<link linkend="GSSDPResourceGroup">GSSDPResourceGroup</link> *resource_group);</programlisting>
+<para>
+</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>resource_group</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="GSSDPResourceGroup"><type>GSSDPResourceGroup</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> TRUE if <parameter>resource_group</parameter> is available (advertised).
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gssdp-resource-group-set-message-delay" role="function">
+<title>gssdp_resource_group_set_message_delay ()</title>
+<indexterm zone="gssdp-resource-group-set-message-delay"><primary sortas="gssdp_resource_group_set_message_delay">gssdp_resource_group_set_message_delay</primary></indexterm><programlisting><link linkend="void">void</link>                gssdp_resource_group_set_message_delay
+                                                        (<link linkend="GSSDPResourceGroup">GSSDPResourceGroup</link> *resource_group,
+                                                         <link linkend="guint">guint</link> message_delay);</programlisting>
+<para>
+Sets the minimum time between each SSDP message.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>resource_group</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="GSSDPResourceGroup"><type>GSSDPResourceGroup</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>message_delay</parameter>&#160;:</term>
+<listitem><simpara> The message delay in ms.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gssdp-resource-group-get-message-delay" role="function">
+<title>gssdp_resource_group_get_message_delay ()</title>
+<indexterm zone="gssdp-resource-group-get-message-delay"><primary sortas="gssdp_resource_group_get_message_delay">gssdp_resource_group_get_message_delay</primary></indexterm><programlisting><link linkend="guint">guint</link>               gssdp_resource_group_get_message_delay
+                                                        (<link linkend="GSSDPResourceGroup">GSSDPResourceGroup</link> *resource_group);</programlisting>
+<para>
+</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>resource_group</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="GSSDPResourceGroup"><type>GSSDPResourceGroup</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> the minimum time between each SSDP message in ms.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gssdp-resource-group-add-resource" role="function">
+<title>gssdp_resource_group_add_resource ()</title>
+<indexterm zone="gssdp-resource-group-add-resource"><primary sortas="gssdp_resource_group_add_resource">gssdp_resource_group_add_resource</primary></indexterm><programlisting><link linkend="guint">guint</link>               gssdp_resource_group_add_resource   (<link linkend="GSSDPResourceGroup">GSSDPResourceGroup</link> *resource_group,
+                                                         const <link linkend="char">char</link> *target,
+                                                         const <link linkend="char">char</link> *usn,
+                                                         <link linkend="GList">GList</link> *locations);</programlisting>
+<para>
+Adds a resource with target <parameter>target</parameter>, USN <parameter>usn</parameter>, and locations <parameter>locations</parameter>
+to <parameter>resource_group</parameter>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>resource_group</parameter>&#160;:</term>
+<listitem><simpara> An <parameter>GSSDPResourceGroup</parameter>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>target</parameter>&#160;:</term>
+<listitem><simpara> The resource's target
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>usn</parameter>&#160;:</term>
+<listitem><simpara> The resource's USN
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>locations</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="GList"><type>GList</type></link> of the resource's locations
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> The ID of the added resource.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gssdp-resource-group-add-resource-simple" role="function">
+<title>gssdp_resource_group_add_resource_simple ()</title>
+<indexterm zone="gssdp-resource-group-add-resource-simple"><primary sortas="gssdp_resource_group_add_resource_simple">gssdp_resource_group_add_resource_simple</primary></indexterm><programlisting><link linkend="guint">guint</link>               gssdp_resource_group_add_resource_simple
+                                                        (<link linkend="GSSDPResourceGroup">GSSDPResourceGroup</link> *resource_group,
+                                                         const <link linkend="char">char</link> *target,
+                                                         const <link linkend="char">char</link> *usn,
+                                                         const <link linkend="char">char</link> *location);</programlisting>
+<para>
+Adds a resource with target <parameter>target</parameter>, USN <parameter>usn</parameter>, and location <parameter>location</parameter>
+to <parameter>resource_group</parameter>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>resource_group</parameter>&#160;:</term>
+<listitem><simpara> An <parameter>GSSDPResourceGroup</parameter>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>target</parameter>&#160;:</term>
+<listitem><simpara> The resource's target
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>usn</parameter>&#160;:</term>
+<listitem><simpara> The resource's USN
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>location</parameter>&#160;:</term>
+<listitem><simpara> The resource's location
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> The ID of the added resource.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gssdp-resource-group-remove-resource" role="function">
+<title>gssdp_resource_group_remove_resource ()</title>
+<indexterm zone="gssdp-resource-group-remove-resource"><primary sortas="gssdp_resource_group_remove_resource">gssdp_resource_group_remove_resource</primary></indexterm><programlisting><link linkend="void">void</link>                gssdp_resource_group_remove_resource
+                                                        (<link linkend="GSSDPResourceGroup">GSSDPResourceGroup</link> *resource_group,
+                                                         <link linkend="guint">guint</link> resource_id);</programlisting>
+<para>
+Removes the resource with ID <parameter>resource_id</parameter> from <parameter>resource_group</parameter>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>resource_group</parameter>&#160;:</term>
+<listitem><simpara> An <parameter>GSSDPResourceGroup</parameter>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>resource_id</parameter>&#160;:</term>
+<listitem><simpara> The ID of the resource to remove
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 id="GSSDPResourceGroup.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GSSDPResourceGroup--available" role="property"><title>The <literal>&quot;available&quot;</literal> property</title>
+<indexterm zone="GSSDPResourceGroup--available"><primary sortas="GSSDPResourceGroup:available">GSSDPResourceGroup:available</primary></indexterm><programlisting>  &quot;available&quot;                <link linkend="gboolean">gboolean</link>              : Read / Write</programlisting>
+<para>
+Whether this group of resources is available or not.</para>
+<para>
+</para><para>Default value: FALSE</para>
+</refsect2>
+<refsect2 id="GSSDPResourceGroup--client" role="property"><title>The <literal>&quot;client&quot;</literal> property</title>
+<indexterm zone="GSSDPResourceGroup--client"><primary sortas="GSSDPResourceGroup:client">GSSDPResourceGroup:client</primary></indexterm><programlisting>  &quot;client&quot;                   <link linkend="GSSDPClient">GSSDPClient</link>*          : Read / Write / Construct Only</programlisting>
+<para>
+The <link linkend="GSSDPClient"><type>GSSDPClient</type></link> to use.</para>
+<para>
+</para></refsect2>
+<refsect2 id="GSSDPResourceGroup--max-age" role="property"><title>The <literal>&quot;max-age&quot;</literal> property</title>
+<indexterm zone="GSSDPResourceGroup--max-age"><primary sortas="GSSDPResourceGroup:max-age">GSSDPResourceGroup:max-age</primary></indexterm><programlisting>  &quot;max-age&quot;                  <link linkend="guint">guint</link>                 : Read / Write</programlisting>
+<para>
+The number of seconds our advertisements are valid.</para>
+<para>
+</para><para>Default value: 1800</para>
+</refsect2>
+<refsect2 id="GSSDPResourceGroup--message-delay" role="property"><title>The <literal>&quot;message-delay&quot;</literal> property</title>
+<indexterm zone="GSSDPResourceGroup--message-delay"><primary sortas="GSSDPResourceGroup:message-delay">GSSDPResourceGroup:message-delay</primary></indexterm><programlisting>  &quot;message-delay&quot;            <link linkend="guint">guint</link>                 : Read / Write</programlisting>
+<para>
+The minimum number of milliseconds between SSDP messages.
+The default is 20 based on DLNA specification.</para>
+<para>
+</para><para>Default value: 20</para>
+</refsect2>
+</refsect1>
+
+
+
+
+</refentry>

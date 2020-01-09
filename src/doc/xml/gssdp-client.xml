@@ -1,0 +1,255 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">               
+]>
+<refentry id="GSSDPClient">
+<refmeta>
+<refentrytitle role="top_of_page" id="GSSDPClient.top_of_page">GSSDPClient</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GSSDP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GSSDPClient</refname>
+<refpurpose>SSDP "bus" wrapper.</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="GSSDPClient.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="GSSDPClient-struct">GSSDPClient</link>;
+<link linkend="GSSDPClient">GSSDPClient</link> *       <link linkend="gssdp-client-new">gssdp_client_new</link>                    (<link linkend="GMainContext">GMainContext</link> *main_context,
+                                                         const <link linkend="char">char</link> *interface,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="GMainContext">GMainContext</link> *      <link linkend="gssdp-client-get-main-context">gssdp_client_get_main_context</link>       (<link linkend="GSSDPClient">GSSDPClient</link> *client);
+<link linkend="void">void</link>                <link linkend="gssdp-client-set-server-id">gssdp_client_set_server_id</link>          (<link linkend="GSSDPClient">GSSDPClient</link> *client,
+                                                         const <link linkend="char">char</link> *server_id);
+const <link linkend="char">char</link> *        <link linkend="gssdp-client-get-server-id">gssdp_client_get_server_id</link>          (<link linkend="GSSDPClient">GSSDPClient</link> *client);
+const <link linkend="char">char</link> *        <link linkend="gssdp-client-get-interface">gssdp_client_get_interface</link>          (<link linkend="GSSDPClient">GSSDPClient</link> *client);
+const <link linkend="char">char</link> *        <link linkend="gssdp-client-get-host-ip">gssdp_client_get_host_ip</link>            (<link linkend="GSSDPClient">GSSDPClient</link> *client);
+<link linkend="gboolean">gboolean</link>            <link linkend="gssdp-client-get-active">gssdp_client_get_active</link>             (<link linkend="GSSDPClient">GSSDPClient</link> *client);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="GSSDPClient.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----GSSDPClient
+</synopsis>
+</refsect1>
+
+
+
+
+
+<refsect1 id="GSSDPClient.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="GSSDPClient--active">active</link>&quot;                   <link linkend="gboolean">gboolean</link>              : Read / Write
+  &quot;<link linkend="GSSDPClient--error">error</link>&quot;                    <link linkend="gpointer">gpointer</link>              : Write / Construct Only
+  &quot;<link linkend="GSSDPClient--host-ip">host-ip</link>&quot;                  <link linkend="gchar">gchar</link>*                : Read
+  &quot;<link linkend="GSSDPClient--interface">interface</link>&quot;                <link linkend="gchar">gchar</link>*                : Read / Write / Construct Only
+  &quot;<link linkend="GSSDPClient--main-context">main-context</link>&quot;             <link linkend="gpointer">gpointer</link>              : Read / Write / Construct Only
+  &quot;<link linkend="GSSDPClient--server-id">server-id</link>&quot;                <link linkend="gchar">gchar</link>*                : Read / Write
+</synopsis>
+</refsect1>
+
+<refsect1 id="GSSDPClient.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<synopsis>
+  &quot;<link linkend="GSSDPClient-message-received">message-received</link>&quot;                               : Run Last
+</synopsis>
+</refsect1>
+
+
+<refsect1 id="GSSDPClient.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+<link linkend="GSSDPClient"><type>GSSDPClient</type></link> wraps the SSDP "bus" as used by both <link linkend="GSSDPResourceBrowser"><type>GSSDPResourceBrowser</type></link>
+and <link linkend="GSSDPResourceGroup"><type>GSSDPResourceGroup</type></link>.</para>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="GSSDPClient.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GSSDPClient-struct" role="struct">
+<title>GSSDPClient</title>
+<indexterm zone="GSSDPClient-struct"><primary sortas="GSSDPClient">GSSDPClient</primary></indexterm><programlisting>typedef struct _GSSDPClient GSSDPClient;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="gssdp-client-new" role="function">
+<title>gssdp_client_new ()</title>
+<indexterm zone="gssdp-client-new"><primary sortas="gssdp_client_new">gssdp_client_new</primary></indexterm><programlisting><link linkend="GSSDPClient">GSSDPClient</link> *       gssdp_client_new                    (<link linkend="GMainContext">GMainContext</link> *main_context,
+                                                         const <link linkend="char">char</link> *interface,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>main_context</parameter>&#160;:</term>
+<listitem><simpara> The <link linkend="GMainContext"><type>GMainContext</type></link> to associate with, or NULL
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>interface</parameter>&#160;:</term>
+<listitem><simpara> The name of the network interface, or <link linkend="NULL--CAPS"><literal>NULL</literal></link> for auto-detection.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&#160;:</term>
+<listitem><simpara> Location to store error, or NULL
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> A new <link linkend="GSSDPClient"><type>GSSDPClient</type></link> object.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gssdp-client-get-main-context" role="function">
+<title>gssdp_client_get_main_context ()</title>
+<indexterm zone="gssdp-client-get-main-context"><primary sortas="gssdp_client_get_main_context">gssdp_client_get_main_context</primary></indexterm><programlisting><link linkend="GMainContext">GMainContext</link> *      gssdp_client_get_main_context       (<link linkend="GSSDPClient">GSSDPClient</link> *client);</programlisting>
+<para>
+</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>client</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="GSSDPClient"><type>GSSDPClient</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> The <link linkend="GMainContext"><type>GMainContext</type></link> <parameter>client</parameter> is associated with, or NULL.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gssdp-client-set-server-id" role="function">
+<title>gssdp_client_set_server_id ()</title>
+<indexterm zone="gssdp-client-set-server-id"><primary sortas="gssdp_client_set_server_id">gssdp_client_set_server_id</primary></indexterm><programlisting><link linkend="void">void</link>                gssdp_client_set_server_id          (<link linkend="GSSDPClient">GSSDPClient</link> *client,
+                                                         const <link linkend="char">char</link> *server_id);</programlisting>
+<para>
+Sets the server ID of <parameter>client</parameter> to <parameter>server_id</parameter>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>client</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="GSSDPClient"><type>GSSDPClient</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>server_id</parameter>&#160;:</term>
+<listitem><simpara> The server ID
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gssdp-client-get-server-id" role="function">
+<title>gssdp_client_get_server_id ()</title>
+<indexterm zone="gssdp-client-get-server-id"><primary sortas="gssdp_client_get_server_id">gssdp_client_get_server_id</primary></indexterm><programlisting>const <link linkend="char">char</link> *        gssdp_client_get_server_id          (<link linkend="GSSDPClient">GSSDPClient</link> *client);</programlisting>
+<para>
+</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>client</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="GSSDPClient"><type>GSSDPClient</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> The server ID.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gssdp-client-get-interface" role="function">
+<title>gssdp_client_get_interface ()</title>
+<indexterm zone="gssdp-client-get-interface"><primary sortas="gssdp_client_get_interface">gssdp_client_get_interface</primary></indexterm><programlisting>const <link linkend="char">char</link> *        gssdp_client_get_interface          (<link linkend="GSSDPClient">GSSDPClient</link> *client);</programlisting>
+<para>
+Get the name of the network interface associated to <parameter>client</parameter>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>client</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="GSSDPClient"><type>GSSDPClient</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> The network interface name. This string should not be freed.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gssdp-client-get-host-ip" role="function">
+<title>gssdp_client_get_host_ip ()</title>
+<indexterm zone="gssdp-client-get-host-ip"><primary sortas="gssdp_client_get_host_ip">gssdp_client_get_host_ip</primary></indexterm><programlisting>const <link linkend="char">char</link> *        gssdp_client_get_host_ip            (<link linkend="GSSDPClient">GSSDPClient</link> *client);</programlisting>
+<para>
+Get the IP address we advertise ourselves as using.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>client</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="GSSDPClient"><type>GSSDPClient</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> The IP address. This string should not be freed.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gssdp-client-get-active" role="function">
+<title>gssdp_client_get_active ()</title>
+<indexterm zone="gssdp-client-get-active"><primary sortas="gssdp_client_get_active">gssdp_client_get_active</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gssdp_client_get_active             (<link linkend="GSSDPClient">GSSDPClient</link> *client);</programlisting>
+<para>
+</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>client</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="GSSDPClient"><type>GSSDPClient</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> <link linkend="TRUE--CAPS"><literal>TRUE</literal></link> if <parameter>client</parameter> is active, <link linkend="FALSE--CAPS"><literal>FALSE</literal></link> otherwise.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 id="GSSDPClient.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GSSDPClient--active" role="property"><title>The <literal>&quot;active&quot;</literal> property</title>
+<indexterm zone="GSSDPClient--active"><primary sortas="GSSDPClient:active">GSSDPClient:active</primary></indexterm><programlisting>  &quot;active&quot;                   <link linkend="gboolean">gboolean</link>              : Read / Write</programlisting>
+<para>
+Whether this client is active or not (passive). When active
+(default), the client sends messages on the network, otherwise
+not. In most cases, you don't want to touch this property.</para>
+<para>
+</para><para>Default value: TRUE</para>
+</refsect2>
+<refsect2 id="GSSDPClient--error" role="property"><title>The <literal>&quot;error&quot;</literal> property</title>
+<indexterm zone="GSSDPClient--error"><primary sortas="GSSDPClient:error">GSSDPClient:error</primary></indexterm><programlisting>  &quot;error&quot;                    <link linkend="gpointer">gpointer</link>              : Write / Construct Only</programlisting>
+<para>
+Internal property.</para>
+<para>
+</para><para>Stability Level Private</para>
+</refsect2>
+<refsect2 id="GSSDPClient--host-ip" role="property"><title>The <literal>&quot;host-ip&quot;</literal> property</title>
+<indexterm zone="GSSDPClient--host-ip"><primary sortas="GSSDPClient:host-ip">GSSDPClient:host-ip</primary></indexterm><programlisting>  &quot;host-ip&quot;                  <link linkend="gchar">gchar</link>*                : Read</programlisting>
+<para>
+The IP address of the assoicated network interface.</para>
+<para>
+</para><para>Default value: NULL</para>
+</refsect2>
+<refsect2 id="GSSDPClient--interface" role="property"><title>The <literal>&quot;interface&quot;</literal> property</title>
+<indexterm zone="GSSDPClient--interface"><primary sortas="GSSDPClient:interface">GSSDPClient:interface</primary></indexterm><programlisting>  &quot;interface&quot;                <link linkend="gchar">gchar</link>*                : Read / Write / Construct Only</programlisting>
+<para>
+The name of the network interface this client is associated with.
+Set to NULL to autodetect.</para>
+<para>
+</para><para>Default value: NULL</para>
+</refsect2>
+<refsect2 id="GSSDPClient--main-context" role="property"><title>The <literal>&quot;main-context&quot;</literal> property</title>
+<indexterm zone="GSSDPClient--main-context"><primary sortas="GSSDPClient:main-context">GSSDPClient:main-context</primary></indexterm><programlisting>  &quot;main-context&quot;             <link linkend="gpointer">gpointer</link>              : Read / Write / Construct Only</programlisting>
+<para>
+The <link linkend="GMainContext"><type>GMainContext</type></link> to use. Set to NULL to use the default.</para>
+<para>
+</para></refsect2>
+<refsect2 id="GSSDPClient--server-id" role="property"><title>The <literal>&quot;server-id&quot;</literal> property</title>
+<indexterm zone="GSSDPClient--server-id"><primary sortas="GSSDPClient:server-id">GSSDPClient:server-id</primary></indexterm><programlisting>  &quot;server-id&quot;                <link linkend="gchar">gchar</link>*                : Read / Write</programlisting>
+<para>
+The SSDP server's identifier.</para>
+<para>
+</para><para>Default value: NULL</para>
+</refsect2>
+</refsect1>
+
+<refsect1 id="GSSDPClient.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="GSSDPClient-message-received" role="signal"><title>The <literal>&quot;message-received&quot;</literal> signal</title>
+<indexterm zone="GSSDPClient-message-received"><primary sortas="GSSDPClient::message-received">GSSDPClient::message-received</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="GSSDPClient">GSSDPClient</link> *arg0,
+                                                        <link linkend="gchar">gchar</link>       *arg1,
+                                                        <link linkend="guint">guint</link>        arg2,
+                                                        <link linkend="gint">gint</link>         arg3,
+                                                        <link linkend="gpointer">gpointer</link>     arg4,
+                                                        <link linkend="gpointer">gpointer</link>     user_data)      : Run Last</programlisting>
+<para>
+Internal signal.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>user_data</parameter>&#160;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist><para>Stability Level: Private</para></refsect2>
+</refsect1>
+
+
+
+</refentry>

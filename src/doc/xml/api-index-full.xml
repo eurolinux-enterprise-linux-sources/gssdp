@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE indexdiv PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">               
+]>
+<indexdiv>
+<indexdiv><title>G</title>
+<indexentry><primaryie linkends="GSSDPClient-struct"><link linkend="GSSDPClient">GSSDPClient</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GSSDPClient-message-received"><link linkend="GSSDPClient-message-received">GSSDPClient::message-received</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GSSDPClient--active"><link linkend="GSSDPClient--active">GSSDPClient:active</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GSSDPClient--error"><link linkend="GSSDPClient--error">GSSDPClient:error</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GSSDPClient--host-ip"><link linkend="GSSDPClient--host-ip">GSSDPClient:host-ip</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GSSDPClient--interface"><link linkend="GSSDPClient--interface">GSSDPClient:interface</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GSSDPClient--main-context"><link linkend="GSSDPClient--main-context">GSSDPClient:main-context</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GSSDPClient--server-id"><link linkend="GSSDPClient--server-id">GSSDPClient:server-id</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GSSDPError"><link linkend="GSSDPError">GSSDPError</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GSSDPResourceBrowser-struct"><link linkend="GSSDPResourceBrowser">GSSDPResourceBrowser</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GSSDPResourceBrowser-resource-available"><link linkend="GSSDPResourceBrowser-resource-available">GSSDPResourceBrowser::resource-available</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GSSDPResourceBrowser-resource-unavailable"><link linkend="GSSDPResourceBrowser-resource-unavailable">GSSDPResourceBrowser::resource-unavailable</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GSSDPResourceBrowser--active"><link linkend="GSSDPResourceBrowser--active">GSSDPResourceBrowser:active</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GSSDPResourceBrowser--client"><link linkend="GSSDPResourceBrowser--client">GSSDPResourceBrowser:client</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GSSDPResourceBrowser--mx"><link linkend="GSSDPResourceBrowser--mx">GSSDPResourceBrowser:mx</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GSSDPResourceBrowser--target"><link linkend="GSSDPResourceBrowser--target">GSSDPResourceBrowser:target</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GSSDPResourceGroup-struct"><link linkend="GSSDPResourceGroup">GSSDPResourceGroup</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GSSDPResourceGroup--available"><link linkend="GSSDPResourceGroup--available">GSSDPResourceGroup:available</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GSSDPResourceGroup--client"><link linkend="GSSDPResourceGroup--client">GSSDPResourceGroup:client</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GSSDPResourceGroup--max-age"><link linkend="GSSDPResourceGroup--max-age">GSSDPResourceGroup:max-age</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GSSDPResourceGroup--message-delay"><link linkend="GSSDPResourceGroup--message-delay">GSSDPResourceGroup:message-delay</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GSSDP-ALL-RESOURCES--CAPS"><link linkend="GSSDP-ALL-RESOURCES--CAPS">GSSDP_ALL_RESOURCES</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gssdp-client-get-active"><link linkend="gssdp-client-get-active">gssdp_client_get_active</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gssdp-client-get-host-ip"><link linkend="gssdp-client-get-host-ip">gssdp_client_get_host_ip</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gssdp-client-get-interface"><link linkend="gssdp-client-get-interface">gssdp_client_get_interface</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gssdp-client-get-main-context"><link linkend="gssdp-client-get-main-context">gssdp_client_get_main_context</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gssdp-client-get-server-id"><link linkend="gssdp-client-get-server-id">gssdp_client_get_server_id</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gssdp-client-new"><link linkend="gssdp-client-new">gssdp_client_new</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gssdp-client-set-server-id"><link linkend="gssdp-client-set-server-id">gssdp_client_set_server_id</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GSSDP-ERROR--CAPS"><link linkend="GSSDP-ERROR--CAPS">GSSDP_ERROR</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gssdp-resource-browser-get-active"><link linkend="gssdp-resource-browser-get-active">gssdp_resource_browser_get_active</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gssdp-resource-browser-get-client"><link linkend="gssdp-resource-browser-get-client">gssdp_resource_browser_get_client</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gssdp-resource-browser-get-mx"><link linkend="gssdp-resource-browser-get-mx">gssdp_resource_browser_get_mx</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gssdp-resource-browser-get-target"><link linkend="gssdp-resource-browser-get-target">gssdp_resource_browser_get_target</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gssdp-resource-browser-new"><link linkend="gssdp-resource-browser-new">gssdp_resource_browser_new</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gssdp-resource-browser-set-active"><link linkend="gssdp-resource-browser-set-active">gssdp_resource_browser_set_active</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gssdp-resource-browser-set-mx"><link linkend="gssdp-resource-browser-set-mx">gssdp_resource_browser_set_mx</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gssdp-resource-browser-set-target"><link linkend="gssdp-resource-browser-set-target">gssdp_resource_browser_set_target</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gssdp-resource-group-add-resource"><link linkend="gssdp-resource-group-add-resource">gssdp_resource_group_add_resource</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gssdp-resource-group-add-resource-simple"><link linkend="gssdp-resource-group-add-resource-simple">gssdp_resource_group_add_resource_simple</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gssdp-resource-group-get-available"><link linkend="gssdp-resource-group-get-available">gssdp_resource_group_get_available</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gssdp-resource-group-get-client"><link linkend="gssdp-resource-group-get-client">gssdp_resource_group_get_client</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gssdp-resource-group-get-max-age"><link linkend="gssdp-resource-group-get-max-age">gssdp_resource_group_get_max_age</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gssdp-resource-group-get-message-delay"><link linkend="gssdp-resource-group-get-message-delay">gssdp_resource_group_get_message_delay</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gssdp-resource-group-new"><link linkend="gssdp-resource-group-new">gssdp_resource_group_new</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gssdp-resource-group-remove-resource"><link linkend="gssdp-resource-group-remove-resource">gssdp_resource_group_remove_resource</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gssdp-resource-group-set-available"><link linkend="gssdp-resource-group-set-available">gssdp_resource_group_set_available</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gssdp-resource-group-set-max-age"><link linkend="gssdp-resource-group-set-max-age">gssdp_resource_group_set_max_age</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gssdp-resource-group-set-message-delay"><link linkend="gssdp-resource-group-set-message-delay">gssdp_resource_group_set_message_delay</link></primaryie></indexentry>
+</indexdiv>
+</indexdiv>

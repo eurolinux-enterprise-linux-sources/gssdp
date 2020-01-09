@@ -1,0 +1,294 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">               
+]>
+<refentry id="GSSDPResourceBrowser">
+<refmeta>
+<refentrytitle role="top_of_page" id="GSSDPResourceBrowser.top_of_page">GSSDPResourceBrowser</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GSSDP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GSSDPResourceBrowser</refname>
+<refpurpose>Class handling resource discovery.</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="GSSDPResourceBrowser.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="GSSDPResourceBrowser-struct">GSSDPResourceBrowser</link>;
+#define             <link linkend="GSSDP-ALL-RESOURCES--CAPS">GSSDP_ALL_RESOURCES</link>
+<link linkend="GSSDPResourceBrowser">GSSDPResourceBrowser</link> * <link linkend="gssdp-resource-browser-new">gssdp_resource_browser_new</link>       (<link linkend="GSSDPClient">GSSDPClient</link> *client,
+                                                         const <link linkend="char">char</link> *target);
+<link linkend="GSSDPClient">GSSDPClient</link> *       <link linkend="gssdp-resource-browser-get-client">gssdp_resource_browser_get_client</link>   (<link linkend="GSSDPResourceBrowser">GSSDPResourceBrowser</link> *resource_browser);
+<link linkend="void">void</link>                <link linkend="gssdp-resource-browser-set-target">gssdp_resource_browser_set_target</link>   (<link linkend="GSSDPResourceBrowser">GSSDPResourceBrowser</link> *resource_browser,
+                                                         const <link linkend="char">char</link> *target);
+const <link linkend="char">char</link> *        <link linkend="gssdp-resource-browser-get-target">gssdp_resource_browser_get_target</link>   (<link linkend="GSSDPResourceBrowser">GSSDPResourceBrowser</link> *resource_browser);
+<link linkend="void">void</link>                <link linkend="gssdp-resource-browser-set-mx">gssdp_resource_browser_set_mx</link>       (<link linkend="GSSDPResourceBrowser">GSSDPResourceBrowser</link> *resource_browser,
+                                                         <link linkend="gushort">gushort</link> mx);
+<link linkend="gushort">gushort</link>             <link linkend="gssdp-resource-browser-get-mx">gssdp_resource_browser_get_mx</link>       (<link linkend="GSSDPResourceBrowser">GSSDPResourceBrowser</link> *resource_browser);
+<link linkend="void">void</link>                <link linkend="gssdp-resource-browser-set-active">gssdp_resource_browser_set_active</link>   (<link linkend="GSSDPResourceBrowser">GSSDPResourceBrowser</link> *resource_browser,
+                                                         <link linkend="gboolean">gboolean</link> active);
+<link linkend="gboolean">gboolean</link>            <link linkend="gssdp-resource-browser-get-active">gssdp_resource_browser_get_active</link>   (<link linkend="GSSDPResourceBrowser">GSSDPResourceBrowser</link> *resource_browser);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="GSSDPResourceBrowser.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----GSSDPResourceBrowser
+</synopsis>
+</refsect1>
+
+
+
+
+
+<refsect1 id="GSSDPResourceBrowser.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="GSSDPResourceBrowser--active">active</link>&quot;                   <link linkend="gboolean">gboolean</link>              : Read / Write
+  &quot;<link linkend="GSSDPResourceBrowser--client">client</link>&quot;                   <link linkend="GSSDPClient">GSSDPClient</link>*          : Read / Write / Construct Only
+  &quot;<link linkend="GSSDPResourceBrowser--mx">mx</link>&quot;                       <link linkend="guint">guint</link>                 : Read / Write
+  &quot;<link linkend="GSSDPResourceBrowser--target">target</link>&quot;                   <link linkend="gchar">gchar</link>*                : Read / Write
+</synopsis>
+</refsect1>
+
+<refsect1 id="GSSDPResourceBrowser.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<synopsis>
+  &quot;<link linkend="GSSDPResourceBrowser-resource-available">resource-available</link>&quot;                             : Run Last
+  &quot;<link linkend="GSSDPResourceBrowser-resource-unavailable">resource-unavailable</link>&quot;                           : Run Last
+</synopsis>
+</refsect1>
+
+
+<refsect1 id="GSSDPResourceBrowser.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+<link linkend="GUPnPResourceBrowser"><type>GUPnPResourceBrowser</type></link> handles resource discovery. After creating a browser
+and activating it, the ::resource-available and ::resource-unavailable
+signals will be emitted whenever the availability of a resource matching the
+specified discovery target changes. A discovery request is sent out
+automatically when activating the browser.</para>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="GSSDPResourceBrowser.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GSSDPResourceBrowser-struct" role="struct">
+<title>GSSDPResourceBrowser</title>
+<indexterm zone="GSSDPResourceBrowser-struct"><primary sortas="GSSDPResourceBrowser">GSSDPResourceBrowser</primary></indexterm><programlisting>typedef struct _GSSDPResourceBrowser GSSDPResourceBrowser;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="GSSDP-ALL-RESOURCES--CAPS" role="macro">
+<title>GSSDP_ALL_RESOURCES</title>
+<indexterm zone="GSSDP-ALL-RESOURCES--CAPS"><primary sortas="GSSDP_ALL_RESOURCES">GSSDP_ALL_RESOURCES</primary></indexterm><programlisting>#define GSSDP_ALL_RESOURCES "ssdp:all"
+</programlisting>
+<para>
+SSDP search target for finding all possible resources.</para>
+<para>
+</para></refsect2>
+<refsect2 id="gssdp-resource-browser-new" role="function">
+<title>gssdp_resource_browser_new ()</title>
+<indexterm zone="gssdp-resource-browser-new"><primary sortas="gssdp_resource_browser_new">gssdp_resource_browser_new</primary></indexterm><programlisting><link linkend="GSSDPResourceBrowser">GSSDPResourceBrowser</link> * gssdp_resource_browser_new       (<link linkend="GSSDPClient">GSSDPClient</link> *client,
+                                                         const <link linkend="char">char</link> *target);</programlisting>
+<para>
+</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>client</parameter>&#160;:</term>
+<listitem><simpara> The <link linkend="GSSDPClient"><type>GSSDPClient</type></link> to associate with
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>target</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> A new <link linkend="GSSDPResourceBrowser"><type>GSSDPResourceBrowser</type></link> object.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gssdp-resource-browser-get-client" role="function">
+<title>gssdp_resource_browser_get_client ()</title>
+<indexterm zone="gssdp-resource-browser-get-client"><primary sortas="gssdp_resource_browser_get_client">gssdp_resource_browser_get_client</primary></indexterm><programlisting><link linkend="GSSDPClient">GSSDPClient</link> *       gssdp_resource_browser_get_client   (<link linkend="GSSDPResourceBrowser">GSSDPResourceBrowser</link> *resource_browser);</programlisting>
+<para>
+</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>resource_browser</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="GSSDPResourceBrowser"><type>GSSDPResourceBrowser</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> The <link linkend="GSSDPClient"><type>GSSDPClient</type></link> <parameter>resource_browser</parameter> is associated with.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gssdp-resource-browser-set-target" role="function">
+<title>gssdp_resource_browser_set_target ()</title>
+<indexterm zone="gssdp-resource-browser-set-target"><primary sortas="gssdp_resource_browser_set_target">gssdp_resource_browser_set_target</primary></indexterm><programlisting><link linkend="void">void</link>                gssdp_resource_browser_set_target   (<link linkend="GSSDPResourceBrowser">GSSDPResourceBrowser</link> *resource_browser,
+                                                         const <link linkend="char">char</link> *target);</programlisting>
+<para>
+Sets the browser target of <parameter>resource_browser</parameter> to <parameter>target</parameter>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>resource_browser</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="GSSDPResourceBrowser"><type>GSSDPResourceBrowser</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>target</parameter>&#160;:</term>
+<listitem><simpara> The browser target
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gssdp-resource-browser-get-target" role="function">
+<title>gssdp_resource_browser_get_target ()</title>
+<indexterm zone="gssdp-resource-browser-get-target"><primary sortas="gssdp_resource_browser_get_target">gssdp_resource_browser_get_target</primary></indexterm><programlisting>const <link linkend="char">char</link> *        gssdp_resource_browser_get_target   (<link linkend="GSSDPResourceBrowser">GSSDPResourceBrowser</link> *resource_browser);</programlisting>
+<para>
+</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>resource_browser</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="GSSDPResourceBrowser"><type>GSSDPResourceBrowser</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> The browser target.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gssdp-resource-browser-set-mx" role="function">
+<title>gssdp_resource_browser_set_mx ()</title>
+<indexterm zone="gssdp-resource-browser-set-mx"><primary sortas="gssdp_resource_browser_set_mx">gssdp_resource_browser_set_mx</primary></indexterm><programlisting><link linkend="void">void</link>                gssdp_resource_browser_set_mx       (<link linkend="GSSDPResourceBrowser">GSSDPResourceBrowser</link> *resource_browser,
+                                                         <link linkend="gushort">gushort</link> mx);</programlisting>
+<para>
+Sets the used MX value of <parameter>resource_browser</parameter> to <parameter>mx</parameter>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>resource_browser</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="GSSDPResourceBrowser"><type>GSSDPResourceBrowser</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>mx</parameter>&#160;:</term>
+<listitem><simpara> The to be used MX value
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gssdp-resource-browser-get-mx" role="function">
+<title>gssdp_resource_browser_get_mx ()</title>
+<indexterm zone="gssdp-resource-browser-get-mx"><primary sortas="gssdp_resource_browser_get_mx">gssdp_resource_browser_get_mx</primary></indexterm><programlisting><link linkend="gushort">gushort</link>             gssdp_resource_browser_get_mx       (<link linkend="GSSDPResourceBrowser">GSSDPResourceBrowser</link> *resource_browser);</programlisting>
+<para>
+</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>resource_browser</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="GSSDPResourceBrowser"><type>GSSDPResourceBrowser</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> The used MX value.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gssdp-resource-browser-set-active" role="function">
+<title>gssdp_resource_browser_set_active ()</title>
+<indexterm zone="gssdp-resource-browser-set-active"><primary sortas="gssdp_resource_browser_set_active">gssdp_resource_browser_set_active</primary></indexterm><programlisting><link linkend="void">void</link>                gssdp_resource_browser_set_active   (<link linkend="GSSDPResourceBrowser">GSSDPResourceBrowser</link> *resource_browser,
+                                                         <link linkend="gboolean">gboolean</link> active);</programlisting>
+<para>
+(De)activates <parameter>resource_browser</parameter>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>resource_browser</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="GSSDPResourceBrowser"><type>GSSDPResourceBrowser</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>active</parameter>&#160;:</term>
+<listitem><simpara> TRUE to activate <parameter>resource_browser</parameter>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gssdp-resource-browser-get-active" role="function">
+<title>gssdp_resource_browser_get_active ()</title>
+<indexterm zone="gssdp-resource-browser-get-active"><primary sortas="gssdp_resource_browser_get_active">gssdp_resource_browser_get_active</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gssdp_resource_browser_get_active   (<link linkend="GSSDPResourceBrowser">GSSDPResourceBrowser</link> *resource_browser);</programlisting>
+<para>
+</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>resource_browser</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="GSSDPResourceBrowser"><type>GSSDPResourceBrowser</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> TRUE if <parameter>resource_browser</parameter> is active.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 id="GSSDPResourceBrowser.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GSSDPResourceBrowser--active" role="property"><title>The <literal>&quot;active&quot;</literal> property</title>
+<indexterm zone="GSSDPResourceBrowser--active"><primary sortas="GSSDPResourceBrowser:active">GSSDPResourceBrowser:active</primary></indexterm><programlisting>  &quot;active&quot;                   <link linkend="gboolean">gboolean</link>              : Read / Write</programlisting>
+<para>
+Whether this browser is active or not.</para>
+<para>
+</para><para>Default value: FALSE</para>
+</refsect2>
+<refsect2 id="GSSDPResourceBrowser--client" role="property"><title>The <literal>&quot;client&quot;</literal> property</title>
+<indexterm zone="GSSDPResourceBrowser--client"><primary sortas="GSSDPResourceBrowser:client">GSSDPResourceBrowser:client</primary></indexterm><programlisting>  &quot;client&quot;                   <link linkend="GSSDPClient">GSSDPClient</link>*          : Read / Write / Construct Only</programlisting>
+<para>
+The <link linkend="GSSDPClient"><type>GSSDPClient</type></link> to use.</para>
+<para>
+</para></refsect2>
+<refsect2 id="GSSDPResourceBrowser--mx" role="property"><title>The <literal>&quot;mx&quot;</literal> property</title>
+<indexterm zone="GSSDPResourceBrowser--mx"><primary sortas="GSSDPResourceBrowser:mx">GSSDPResourceBrowser:mx</primary></indexterm><programlisting>  &quot;mx&quot;                       <link linkend="guint">guint</link>                 : Read / Write</programlisting>
+<para>
+The maximum number of seconds in which to request other parties
+to respond.</para>
+<para>
+</para><para>Allowed values: [1,65535]</para>
+<para>Default value: 3</para>
+</refsect2>
+<refsect2 id="GSSDPResourceBrowser--target" role="property"><title>The <literal>&quot;target&quot;</literal> property</title>
+<indexterm zone="GSSDPResourceBrowser--target"><primary sortas="GSSDPResourceBrowser:target">GSSDPResourceBrowser:target</primary></indexterm><programlisting>  &quot;target&quot;                   <link linkend="gchar">gchar</link>*                : Read / Write</programlisting>
+<para>
+The discovery target.</para>
+<para>
+</para><para>Default value: NULL</para>
+</refsect2>
+</refsect1>
+
+<refsect1 id="GSSDPResourceBrowser.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="GSSDPResourceBrowser-resource-available" role="signal"><title>The <literal>&quot;resource-available&quot;</literal> signal</title>
+<indexterm zone="GSSDPResourceBrowser-resource-available"><primary sortas="GSSDPResourceBrowser::resource-available">GSSDPResourceBrowser::resource-available</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="GSSDPResourceBrowser">GSSDPResourceBrowser</link> *resource_browser,
+                                                        <link linkend="gchar">gchar</link>                *usn,
+                                                        <link linkend="gpointer">gpointer</link>              locations,
+                                                        <link linkend="gpointer">gpointer</link>              user_data)             : Run Last</programlisting>
+<para>
+The ::resource-available signal is emitted whenever a new resource
+has become available.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>resource_browser</parameter>&#160;:</term>
+<listitem><simpara> The <link linkend="GSSDPResourceBrowser"><type>GSSDPResourceBrowser</type></link> that received the
+signal
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>usn</parameter>&#160;:</term>
+<listitem><simpara> The USN of the discovered resource
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>locations</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="GList"><type>GList</type></link> of strings describing the locations of the
+discovered resource.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&#160;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="GSSDPResourceBrowser-resource-unavailable" role="signal"><title>The <literal>&quot;resource-unavailable&quot;</literal> signal</title>
+<indexterm zone="GSSDPResourceBrowser-resource-unavailable"><primary sortas="GSSDPResourceBrowser::resource-unavailable">GSSDPResourceBrowser::resource-unavailable</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="GSSDPResourceBrowser">GSSDPResourceBrowser</link> *resource_browser,
+                                                        <link linkend="gchar">gchar</link>                *usn,
+                                                        <link linkend="gpointer">gpointer</link>              user_data)             : Run Last</programlisting>
+<para>
+The ::resource-unavailable signal is emitted whenever a resource
+is not available any more.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>resource_browser</parameter>&#160;:</term>
+<listitem><simpara> The <link linkend="GSSDPResourceBrowser"><type>GSSDPResourceBrowser</type></link> that received the
+signal
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>usn</parameter>&#160;:</term>
+<listitem><simpara> The USN of the resource
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&#160;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+</refsect1>
+
+
+
+</refentry>
