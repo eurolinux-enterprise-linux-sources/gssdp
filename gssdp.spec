@@ -1,5 +1,5 @@
 Name:          gssdp
-Version:       1.0.1
+Version:       1.0.2
 Release:       1%{?dist}
 Summary:       Resource discovery and announcement over SSDP
 
@@ -97,6 +97,11 @@ make check %{?_smp_mflags} V=1
 %{_datadir}/gtk-doc/html/%{name}
 
 %changelog
+* Tue Jun 05 2018 Bastien Nocera <bnocera@redhat.com> - 1.0.2-1
++ gssdp-1.0.2-1
+- Update to 1.0.2
+- Resolves: #1569965
+
 * Thu Mar 02 2017 Bastien Nocera <bnocera@redhat.com> - 1.0.1-1
 + gssdp-1.0.1-1
 - Update to 1.0.1

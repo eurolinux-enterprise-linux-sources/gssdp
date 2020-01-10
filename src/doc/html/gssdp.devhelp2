@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <book xmlns="http://www.devhelp.net/book" title="GSSDP Reference Manual" link="index.html" author="" name="gssdp" version="2" language="c" online="http://developer.gnome.org/gssdp/stable/">
   <chapters>
-    <sub name="Annotation Glossary" link="annotation-glossary.html"/>
     <sub name="GSSDP" link="ch01.html">
       <sub name="GSSDPClient" link="GSSDPClient.html"/>
       <sub name="GSSDPResourceBrowser" link="GSSDPResourceBrowser.html"/>
       <sub name="GSSDPResourceGroup" link="GSSDPResourceGroup.html"/>
       <sub name="Error codes" link="gssdp-Error-codes.html"/>
     </sub>
+    <sub name="Annotation Glossary" link="annotation-glossary.html"/>
   </chapters>
   <functions>
     <keyword type="function" name="gssdp_client_new ()" link="GSSDPClient.html#gssdp-client-new"/>
