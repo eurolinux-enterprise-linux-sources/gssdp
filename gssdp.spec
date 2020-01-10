@@ -1,6 +1,6 @@
 Name:          gssdp
 Version:       0.14.3
-Release:       1%{?dist}
+Release:       3%{?dist}
 Summary:       Resource discovery and announcement over SSDP
 
 Group:         System Environment/Libraries
@@ -95,6 +95,12 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 %{_datadir}/gtk-doc/html/%{name}
 
 %changelog
+* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 0.14.3-3
+- Mass rebuild 2014-01-24
+
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 0.14.3-2
+- Mass rebuild 2013-12-27
+
 * Thu May 30 2013 Peter Robinson <pbrobinson@fedoraproject.org> 0.14.3-1
 - 0.14.3 release
 - http://ftp.gnome.org/pub/GNOME/sources/gssdp/0.14/gssdp-0.14.3.news
