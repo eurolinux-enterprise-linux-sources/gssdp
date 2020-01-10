@@ -1,13 +1,13 @@
 Name:          gssdp
-Version:       0.14.3
-Release:       3%{?dist}
+Version:       1.0.1
+Release:       1%{?dist}
 Summary:       Resource discovery and announcement over SSDP
 
-Group:         System Environment/Libraries
 License:       LGPLv2+
 URL:           http://www.gupnp.org/
-Source0:       http://download.gnome.org/sources/%{name}/0.14/%{name}-%{version}.tar.xz
+Source0:       http://download.gnome.org/sources/%{name}/1.0/%{name}-%{version}.tar.xz
 
+BuildRequires: chrpath
 BuildRequires: dbus-glib-devel
 BuildRequires: GConf2-devel
 BuildRequires: glib2-devel
@@ -18,7 +18,7 @@ BuildRequires: libsoup-devel
 BuildRequires: libxml2-devel
 BuildRequires: NetworkManager-devel
 BuildRequires: pkgconfig
-BuildRequires: vala-tools >= 0.20
+BuildRequires: vala >= 0.20
 
 Requires: dbus
 
@@ -30,26 +30,20 @@ GUPnP API is intended to be easy to use, efficient and flexible.
 
 %package devel
 Summary: Development package for gssdp
-Group: Development/Libraries
-Requires: %{name} = %{version}-%{release}
-Requires: libsoup-devel
-Requires: glib2-devel
-Requires: pkgconfig
+Requires: %{name}%{?_isa} = %{version}-%{release}
 
 %description devel
 Files for development with gssdp.
 
 %package utils
 Summary: Various GUI utuls for %{name}
-Group: Applications/System
-Requires: %{name} = %{version}-%{release}
+Requires: %{name}%{?_isa} = %{version}-%{release}
 
 %description utils
 This package contains GUI utilies for %{name}.
 
 %package docs
 Summary: Documentation files for %{name}
-Group: Development/Libraries
 Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
@@ -65,17 +59,25 @@ This package contains developer documentation for %{name}.
 make %{?_smp_mflags} V=1
 
 %install
-make install DESTDIR=%{buildroot}
+%make_install
 
 #Remove libtool archives.
-find %{buildroot} -name '*.la' -exec rm -f {} ';'
+find %{buildroot} -name '*.la' -delete
+
+# Remove lib64 rpath
+chrpath --delete %{buildroot}%{_bindir}/gssdp-device-sniffer
+
+%check
+make check %{?_smp_mflags} V=1
 
 %post -p /sbin/ldconfig
 
 %postun -p /sbin/ldconfig
 
 %files
-%doc AUTHORS COPYING README NEWS
+%{!?_licensedir:%global license %%doc}
+%license COPYING
+%doc AUTHORS README NEWS
 %dir %{_datadir}/gssdp
 %{_libdir}/libgssdp-1.0.so.*
 %{_libdir}/girepository-1.0/GSSDP-1.0.typelib
@@ -95,6 +97,11 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 %{_datadir}/gtk-doc/html/%{name}
 
 %changelog
+* Thu Mar 02 2017 Bastien Nocera <bnocera@redhat.com> - 1.0.1-1
++ gssdp-1.0.1-1
+- Update to 1.0.1
+Resolves: #1386978
+
 * Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 0.14.3-3
 - Mass rebuild 2014-01-24
 

@@ -37,7 +37,7 @@
 /* Helper functions */
 
 static GSocket *
-create_socket()
+create_socket (void)
 {
         GSocket *socket;
         GError *error = NULL;
@@ -61,7 +61,7 @@ create_socket()
         return socket;
 }
 
-char *
+static char *
 create_alive_message (const char *nt)
 {
         char *usn, *msg;
@@ -71,7 +71,7 @@ create_alive_message (const char *nt)
         else
                 usn = g_strconcat (UUID_1, "::", nt, NULL);
 
-        msg = g_strdup_printf (SSDP_ALIVE_MESSAGE,
+        msg = g_strdup_printf (SSDP_ALIVE_MESSAGE "\r\n",
                                1800,
                                "http://127.0.0.1:1234",
                                "",
@@ -83,7 +83,7 @@ create_alive_message (const char *nt)
         return msg;
 }
 
-char *
+static char *
 create_byebye_message (const char *nt)
 {
         char *usn, *msg;
@@ -93,7 +93,7 @@ create_byebye_message (const char *nt)
         else
                 usn = g_strconcat (UUID_1, "::", nt, NULL);
 
-        msg = g_strdup_printf (SSDP_BYEBYE_MESSAGE, nt, usn);
+        msg = g_strdup_printf (SSDP_BYEBYE_MESSAGE "\r\n", nt, usn);
         g_free (usn);
 
         return msg;
@@ -176,7 +176,7 @@ test_discovery_ssdp_all (void)
         data.usn = UUID_1"::MyService:1";
         data.found = FALSE;
 
-        client = gssdp_client_new (NULL, "lo", &error);
+        client = get_client (&error);
         g_assert (client != NULL);
         g_assert (error == NULL);
 
@@ -230,7 +230,7 @@ test_discovery_upnp_rootdevice (void)
         data.usn = UUID_1"::upnp:rootdevice";
         data.found = FALSE;
 
-        client = gssdp_client_new (NULL, "lo", &error);
+        client = get_client (&error);
         g_assert (client != NULL);
         g_assert (error == NULL);
 
@@ -284,7 +284,7 @@ test_discovery_uuid (void)
         data.usn = UUID_1;
         data.found = FALSE;
 
-        client = gssdp_client_new (NULL, "lo", &error);
+        client = get_client (&error);
         g_assert (client != NULL);
         g_assert (error == NULL);
 
@@ -339,7 +339,7 @@ test_discovery_versioned (void)
         data.usn = VERSIONED_USN_1;
         data.found = FALSE;
 
-        client = gssdp_client_new (NULL, "lo", &error);
+        client = get_client (&error);
         g_assert (client != NULL);
         g_assert (error == NULL);
 
@@ -385,7 +385,6 @@ test_discovery_versioned (void)
         g_source_remove (timeout_id);
         timeout_id = g_timeout_add_seconds (5, quit_loop, data.loop);
         g_main_loop_run (data.loop);
-        g_source_remove (timeout_id);
 
         g_object_unref (browser);
         g_object_unref (client);
@@ -409,7 +408,7 @@ test_discovery_versioned_backwards_compatible (void)
         data.usn = VERSIONED_USN_2;
         data.found = FALSE;
 
-        client = gssdp_client_new (NULL, "lo", &error);
+        client = get_client (&error);
         g_assert (client != NULL);
         g_assert (error == NULL);
 
@@ -462,7 +461,7 @@ test_discovery_versioned_ignore_older (void)
 
         loop = g_main_loop_new (NULL, FALSE);
 
-        client = gssdp_client_new (NULL, "lo", &error);
+        client = get_client (&error);
         g_assert (client != NULL);
         g_assert (error == NULL);
 

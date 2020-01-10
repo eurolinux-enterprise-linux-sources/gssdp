@@ -75,6 +75,11 @@ gssdp_client_new              (GMainContext *main_context,
                                const char   *iface,
                                GError      **error);
 
+GSSDPClient *
+gssdp_client_new_with_port    (const char *iface,
+                               guint16     msearch_port,
+                               GError    **error);
+
 #ifndef GSSDP_DISABLE_DEPRECATED
 GMainContext *
 gssdp_client_get_main_context (GSSDPClient  *client);
@@ -102,6 +107,27 @@ gssdp_client_get_network      (GSSDPClient  *client);
 
 gboolean
 gssdp_client_get_active       (GSSDPClient  *client);
+
+void
+gssdp_client_append_header    (GSSDPClient *client,
+                               const char  *name,
+                               const char  *value);
+
+void
+gssdp_client_remove_header    (GSSDPClient *client,
+                               const char  *name);
+
+void
+gssdp_client_clear_headers    (GSSDPClient *client);
+
+void
+gssdp_client_add_cache_entry  (GSSDPClient  *client,
+                               const char   *ip_address,
+                               const char   *user_agent);
+
+const char *
+gssdp_client_guess_user_agent (GSSDPClient *client,
+                               const char  *ip_address);
 
 G_END_DECLS
 

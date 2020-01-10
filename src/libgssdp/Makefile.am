@@ -8,9 +8,9 @@
 # If any interfaces have been removed since the last public release, then set
 # age to 0.
 
-LTVERSION = 3:0:0
+LTVERSION = 3:1:0
 
-AM_CFLAGS = $(LIBGSSDP_CFLAGS) -I$(top_srcdir)
+AM_CFLAGS = $(LIBGSSDP_CFLAGS) -I$(top_srcdir) $(WARN_CFLAGS)
 
 libgssdpincdir = $(includedir)/gssdp-1.0/libgssdp
 
@@ -38,7 +38,7 @@ introspection_sources = $(libgssdpinc_HEADERS)	\
 			gssdp-resource-browser.c\
 			gssdp-resource-group.c
 
-libgssdp_1_0_la_LDFLAGS = -version-info $(LTVERSION)
+libgssdp_1_0_la_LDFLAGS = -version-info $(LTVERSION) $(WARN_LDFLAGS)
 libgssdp_1_0_la_SOURCES = $(introspection_sources)	\
 			  gssdp-client-private.h	\
 			  gssdp-protocol.h		\
@@ -48,6 +48,11 @@ libgssdp_1_0_la_SOURCES = $(introspection_sources)	\
 			  gssdp-socket-functions.h	\
 			  $(BUILT_SOURCES)
 
+if HAVE_PKTINFO
+libgssdp_1_0_la_SOURCES += gssdp-pktinfo-message.c \
+						   gssdp-pktinfo-message.h
+endif
+
 libgssdp_1_0_la_LIBADD = $(LIBGSSDP_LIBS)
 
 if OS_WIN32
@@ -56,23 +61,28 @@ libgssdp_1_0_la_LIBADD += -lws2_32 -liphlpapi
 libgssdp_1_0_la_LDFLAGS += -no-undefined
 endif
 
+if TARGET_ANDROID
+libgssdp_1_0_la_LIBADD += -llog
+endif
+
 EXTRA_DIST = gssdp-marshal.list
 
 CLEANFILES = $(BUILT_SOURCES)
 
 -include $(INTROSPECTION_MAKEFILE)
 INTROSPECTION_GIRS =
-INTROSPECTION_SCANNER_ARGS = --warn-all				\
+INTROSPECTION_SCANNER_ARGS = \
 			     --symbol-prefix=gssdp		\
 			     --identifier-prefix=GSSDP		\
 			     --add-include-path=$(top_srcdir) \
-			     --pkg-export=gssdp-1.0
+			     --pkg-export=gssdp-1.0 \
+			     $(WARN_SCANNERFLAGS)
 INTROSPECTION_COMPILER_ARGS = --includedir=$(top_srcdir)
 
 
 if HAVE_INTROSPECTION
 GSSDP-1.0.gir: libgssdp-1.0.la
-GSSDP_1_0_gir_INCLUDES = GObject-2.0 Gio-2.0
+GSSDP_1_0_gir_INCLUDES = GObject-2.0 Gio-2.0 Soup-2.4
 GSSDP_1_0_gir_CFLAGS = $(INCLUDES)
 GSSDP_1_0_gir_LIBS = libgssdp-1.0.la
 GSSDP_1_0_gir_FILES = $(introspection_sources)

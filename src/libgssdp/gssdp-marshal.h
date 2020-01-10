@@ -6,13 +6,13 @@
 
 G_BEGIN_DECLS
 
-/* VOID:STRING,UINT,INT,POINTER (./gssdp-marshal.list:1) */
-extern void gssdp_marshal_VOID__STRING_UINT_INT_POINTER (GClosure     *closure,
-                                                         GValue       *return_value,
-                                                         guint         n_param_values,
-                                                         const GValue *param_values,
-                                                         gpointer      invocation_hint,
-                                                         gpointer      marshal_data);
+/* VOID:STRING,UINT,INT,BOXED (./gssdp-marshal.list:1) */
+extern void gssdp_marshal_VOID__STRING_UINT_INT_BOXED (GClosure     *closure,
+                                                       GValue       *return_value,
+                                                       guint         n_param_values,
+                                                       const GValue *param_values,
+                                                       gpointer      invocation_hint,
+                                                       gpointer      marshal_data);
 
 /* VOID:STRING,POINTER (./gssdp-marshal.list:2) */
 extern void gssdp_marshal_VOID__STRING_POINTER (GClosure     *closure,
